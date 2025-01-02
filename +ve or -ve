@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+int main() {
+    
+    int a ;
+    printf ("enter the string: ");
+    scanf("%d",&a);
+    if(a>0)
+    {
+        printf("this is a +ve number!");
+    }
+    else{
+        printf("this is a -ve number");
+    }
+
+    return 0;
+}
