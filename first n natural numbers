@@ -1,0 +1,13 @@
+ // C Program to Find the Sum of First N Natural Numbers
+ 
+ #include<stdio.h>
+ void main()
+ {
+     int num,sum;
+    scanf("%d",&num);
+    for(int i =1 ; i <=num; i++)
+    {
+        sum += i;
+    }
+    printf("%d",sum);
+ }
