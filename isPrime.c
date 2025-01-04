@@ -1,6 +1,6 @@
 // leap year or not 
 #include<stdio.h>
-int leap(int p)
+int prime(int p)
 {
     int sum=0;
     for(int i =1;i<=p;i++)
@@ -24,5 +24,5 @@ void main()
 {
     int num;
     scanf("%d",&num);
-    leap(num);
+    prime(num);
 }
