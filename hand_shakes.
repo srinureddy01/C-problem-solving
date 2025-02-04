@@ -1,0 +1,9 @@
+// number of hand shakes 
+#include<stdio.h>
+void main()
+{
+    int Persent_people,result;
+    scanf("%d",&Persent_people);
+    result = ((Persent_people - 1) *Persent_people)/2;
+    printf("%d",result);
+}
