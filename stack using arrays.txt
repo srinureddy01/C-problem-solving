@@ -1,0 +1,73 @@
+ #include <stdio.h>
+void pop();
+void push();
+void peek();
+void display();
+int n , a[99];
+int top = -1;
+int main()
+{
+  int cho , i;
+  printf("Enter how many ele: ");
+  scanf("%d",&n);
+  while(1)
+    {
+      printf("Enter the choise: \n 1 .push 2.pop ,3. display 4 peek , 5. exit");
+      scanf("%d",&cho);
+      switch(cho)
+        {
+          case 1: printf("Enter the ele :");
+                  scanf("%d",&i);
+                  push(i);
+                  break;
+          case 2: pop();
+                  break;
+          case 3:display();
+                  break;
+          case 4: peek();
+                  break;
+          case 5: exit(0);
+            
+        }
+    }
+  
+}
+void push(int ele)
+{
+  if(top == n-1)
+  {
+    printf("full");
+  }
+  else
+  {
+    top++;
+    a[top] = ele;
+  }
+    
+    
+}
+void pop()
+{
+  if(top == -1)
+  {
+    printf("empty");
+  }
+  else{
+    printf("%d is deleted", a[top]);
+    top--;
+    
+  }
+}
+void display()
+{
+  int i;
+  for(i=top ; i<n ; i++)
+    {
+      printf("%d",a[i]);
+    }
+}
+void peek()
+{
+  printf("%d",a[top]);
+}
+

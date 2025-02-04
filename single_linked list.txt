@@ -1,0 +1,156 @@
+#include <stdio.h>
+#include <stdlib.h>
+void insert();
+void delet_front();
+void delet_mid();
+void display();
+
+void insert_end();
+void insert_mid();
+ 
+struct node 
+{
+  int data ;
+  struct node *link;
+}*head;
+int n;
+int main()
+{
+  int cho ,ele;
+  printf("Enter how many ele: ");
+  scanf("%d",&n);
+  while(1)
+    {
+      printf("Enter your choice: \n 1.insert 2delet 3.display 5insert end 6 insert mid. 7 exit ");
+      scanf("%d",&cho);
+      switch(cho)
+        {
+          case 1:printf("Enter the data: ");
+                    scanf("%d",&ele);
+                  insert(ele , n);
+                      break;
+          case 2:delet_front();
+                  break;
+          case 3:display();
+                break;
+          /*case 4:delet_front();
+                  break;*/
+          case 5:insert_end();
+                    break;
+          case 6:insert_mid();
+                  break;
+          case 7:exit(0);
+           
+          
+        }
+      
+    }
+}
+void insert(int ele , int n)
+{
+  struct node *New, *temp;
+  int i;
+  if(head == NULL)
+  {
+     New = (struct node*)malloc(sizeof(struct node));
+  New -> data = ele;
+  New -> link = NULL;
+  head = New;
+  }
+  else{ 
+  temp = head;
+  for(i =2 ; i<=n ; i++)
+    {
+      New = (struct node *)malloc(sizeof(struct node));
+      New -> data = ele;
+      New -> link = NULL;
+      temp -> link = New;
+      temp = New;
+    }
+  
+    }
+}
+void display()
+{
+  struct node *temp;
+  temp = head;
+  if(temp == NULL)
+  {
+    printf("Empty\n");
+   
+    }
+  else
+  { 
+  while(temp!=NULL)
+    {
+      printf("%d\t", temp->data);
+      temp = temp -> link;
+    }
+  }
+  }
+
+void delet_front()
+{
+  if(head != NULL)
+  { 
+  struct node *temp;
+  temp = head;
+    printf("%d deleted",temp->data);
+  temp = temp -> link;
+  head = temp;
+    
+    }
+  else
+  {
+    printf("\n empty\n");
+  }
+  
+}
+ 
+void insert_end()
+{
+  struct node * temp , *New;
+  int ele;
+  printf("Enter the ele: ");
+  scanf("%d",&ele);
+  New = (struct node*)malloc(sizeof(struct node));
+  if(New == NULL)
+  {
+    printf("sorry");
+    
+  }
+  New -> data = ele;
+  New -> link = NULL;
+  temp = head;
+  while(temp != NULL)
+    {
+      temp = temp -> link;
+    }
+  temp -> link = New;
+  
+}
+
+void insert_mid(int poss)
+{
+  int i ,ele , pos;
+  struct node* New , *temp;
+  New = (struct node *)malloc(sizeof(struct node));
+  printf("Enter the ele: ");
+  scanf("%d",&ele);
+  printf("Enter the poss: ");
+  scanf("%d",&pos);
+  New -> data = ele;
+  temp = head;
+
+  
+  for(i=1; i<pos -1 ; i++)
+    {
+      temp  = temp -> link;
+      
+    }
+  New -> link = temp -> link;
+  temp -> link = New;
+}
+
+
+
